@@ -10,10 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_162515) do
+ActiveRecord::Schema.define(version: 2019_03_11_163018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "initiative_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id"], name: "index_activities_on_initiative_id"
+  end
+
+  create_table "conflicts", force: :cascade do |t|
+    t.text "description"
+    t.bigint "outcome_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outcome_id"], name: "index_conflicts_on_outcome_id"
+  end
+
+  create_table "initiative_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "initiative_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiative_id"], name: "index_initiative_users_on_initiative_id"
+    t.index ["user_id"], name: "index_initiative_users_on_user_id"
+  end
+
+  create_table "initiatives", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "sector_activity"
+    t.integer "budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "outcome_values", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "outcome_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["outcome_id"], name: "index_outcome_values_on_outcome_id"
+  end
+
+  create_table "outcomes", force: :cascade do |t|
+    t.string "title"
+    t.integer "objective_value"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_outcomes_on_activity_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +79,10 @@ ActiveRecord::Schema.define(version: 2019_03_11_162515) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "initiatives"
+  add_foreign_key "conflicts", "outcomes"
+  add_foreign_key "initiative_users", "initiatives"
+  add_foreign_key "initiative_users", "users"
+  add_foreign_key "outcome_values", "outcomes"
+  add_foreign_key "outcomes", "activities"
 end
