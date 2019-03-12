@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :initiatives, only: [:index, :show, :new]
+  resources :initiatives
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

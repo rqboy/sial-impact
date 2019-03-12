@@ -1,10 +1,10 @@
 class InitiativesController < ApplicationController
   def index
-    @intiatives = policy_scope(Initiative).all
+    @initiatives = policy_scope(Initiative).all
   end
 
   def show
-    @initative = Inititative.find(params[:id])
+    @initiative = Initiative.find(params[:id])
     authorize @initiative
   end
 
@@ -15,10 +15,9 @@ class InitiativesController < ApplicationController
 
   def create
     @initiative = Initiative.new(initiative_params)
-    @initiative.user = current_user
     authorize @initiative
     @initiative.save
-    redirect_to root_path
+    redirect_to initiatives_path
   end
 
   def edit
@@ -38,5 +37,9 @@ class InitiativesController < ApplicationController
     authorize @initiative
     @initiative.destroy
     redirect_to initiatives_path
+  end
+
+  def initiative_params
+    params.require(:initiative).permit(:name, :description, :activity_sector, :country, :budget, :photo)
   end
 end
