@@ -4,12 +4,15 @@
       <div class="col-xs-12 col-sm-4">
         <div class="card-product">
         <%= cl_image_tag initiative.photo, width: 120, height: 120, crop: :fill %>
-        <div class="card-product-infos">
-        <%= link_to initiative.name, initiative_path(initiative)  %>
-        <p> blab <strong>blab</strong></p>
-        </div>
+          <div class="card-product-infos">
+          <%= link_to initiative.name, initiative_path(initiative)  %>
+          <p> blab <strong>blab</strong></p>
+          </div>
         </div>
       </div>
     <% end %>
-    </div>
+  </div>
+  <div>
+    <%= link_to "Add a new initiative", new_initiative_path %>
+  </div>
 </div>

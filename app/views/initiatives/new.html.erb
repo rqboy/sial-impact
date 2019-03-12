@@ -1,0 +1,16 @@
+
+<div class="container">
+<h1> Add an initiative </h1>
+  <%= simple_form_for(@initiative) do |f| %>
+    <%= f.input :name, label:"Name" %>
+    <%= f.input :description %>
+    <%= f.input :sector_activity, label: "Activity sector"%>
+    <%= f.input :country, label: "country"%>
+    <%= f.input :budget, label: 'Budget' %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <div class = "submit">
+    <%= f.submit %>
+    </div>
+  <% end %>
+</div>
