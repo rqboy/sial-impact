@@ -32,15 +32,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_144811) do
     t.index ["outcome_id"], name: "index_conflicts_on_outcome_id"
   end
 
-  create_table "initiative_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "initiative_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["initiative_id"], name: "index_initiative_users_on_initiative_id"
-    t.index ["user_id"], name: "index_initiative_users_on_user_id"
-  end
-
   create_table "initiatives", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -87,8 +78,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_144811) do
 
   add_foreign_key "activities", "initiatives"
   add_foreign_key "conflicts", "outcomes"
-  add_foreign_key "initiative_users", "initiatives"
-  add_foreign_key "initiative_users", "users"
   add_foreign_key "initiatives", "users"
   add_foreign_key "initiatives", "users", column: "referent_id"
   add_foreign_key "outcome_values", "outcomes"
