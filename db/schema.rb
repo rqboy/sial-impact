@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_163018) do
+ActiveRecord::Schema.define(version: 2019_03_12_144811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,12 @@ ActiveRecord::Schema.define(version: 2019_03_11_163018) do
     t.integer "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
+    t.string "country"
+    t.bigint "user_id"
+    t.bigint "referent_id"
+    t.index ["referent_id"], name: "index_initiatives_on_referent_id"
+    t.index ["user_id"], name: "index_initiatives_on_user_id"
   end
 
   create_table "outcome_values", force: :cascade do |t|
@@ -83,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_163018) do
   add_foreign_key "conflicts", "outcomes"
   add_foreign_key "initiative_users", "initiatives"
   add_foreign_key "initiative_users", "users"
+  add_foreign_key "initiatives", "users"
+  add_foreign_key "initiatives", "users", column: "referent_id"
   add_foreign_key "outcome_values", "outcomes"
   add_foreign_key "outcomes", "activities"
 end
