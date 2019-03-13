@@ -1,12 +1,16 @@
 
-<div class="container index">
-  <div class="row">
-    <div class="col col-md-2 col-xs-12">
+<!-- <div class="container index">
       <div class="search-column">
-        <p> search </p>
-      </div>
-    </div>
-    <div class="col col-md-10 col-xs-12">
+        <div> </div>
+        <%= form_tag initiatives_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search..."
+        %>
+        <% end %>
+    </div> -->
+    <div class="results">
       <div class="row">
         <% @initiatives.each do |initiative| %>
           <div class="col-xs-12 col-sm-4">
@@ -22,7 +26,6 @@
           </div>
       <% end %>
     </div>
-  </div>
   </div>
 </div>
 

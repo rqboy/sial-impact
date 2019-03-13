@@ -1,6 +1,11 @@
 class InitiativesController < ApplicationController
   def index
-    @initiatives = policy_scope(Initiative).all
+    #@initiatives = policy_scope(Initiative).all
+    if params[:query].present?
+      @initiatives = policy_scope(Initiative).where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @initiatives = policy_scope(Initiative).all
+    end
   end
 
   def show
