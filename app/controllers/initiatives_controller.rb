@@ -41,6 +41,6 @@ class InitiativesController < ApplicationController
   end
 
   def initiative_params
-    params.require(:initiative).permit(:name, :description, :sector_activity, :country, :budget, :photo, :photo_cache)
+    params.require(:initiative).permit(:name, :description, :sector_activity, :country, :budget, :photo)
   end
 end
