@@ -1,7 +1,7 @@
-.index {
+.results {
   display:flex;
-  min-width: 100%;
-  margin: 0 0 0 0;
+  width: 1800px;
+  margin: auto;
   padding: 0;
 
   .row {
@@ -28,12 +28,4 @@
   min-height: 100%;
   position:relative;
   top: 60px;
-}
-
-.dashboard {
-  background-color:white;
-  border-radius: 3px;
-  height: 200px;
-  margin: 0 auto;
-  margin-top: 60px;
 }
