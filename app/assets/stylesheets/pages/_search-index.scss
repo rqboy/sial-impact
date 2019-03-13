@@ -1,0 +1,31 @@
+.results {
+  display:flex;
+  width: 1800px;
+  margin: auto;
+  padding: 0;
+
+  .row {
+    width:100%;
+  }
+}
+
+.search-column {
+  width:80px;
+  background-color: #0097A7;
+  height: 1600px;
+  transition: width 0.4s ease-out;
+  cursor:pointer;
+}
+
+.search-column:hover {
+  width:330px;
+}
+
+.form-control {
+  font-family: 'K2D', sans-serif;
+  font-size: 18px;
+  border-radius: 0px;
+  min-height: 100%;
+  position:relative;
+  top: 60px;
+}

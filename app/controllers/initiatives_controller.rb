@@ -1,6 +1,11 @@
 class InitiativesController < ApplicationController
   def index
-    @initiatives = policy_scope(Initiative).all
+    #@initiatives = policy_scope(Initiative).all
+    if params[:query].present?
+      @initiatives = policy_scope(Initiative).where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @initiatives = policy_scope(Initiative).all
+    end
   end
 
   def show
@@ -15,6 +20,7 @@ class InitiativesController < ApplicationController
 
   def create
     @initiative = Initiative.new(initiative_params)
+    @initiative.user = current_user
     authorize @initiative
     @initiative.save
     redirect_to initiatives_path
@@ -40,6 +46,6 @@ class InitiativesController < ApplicationController
   end
 
   def initiative_params
-    params.require(:initiative).permit(:name, :description, :activity_sector, :country, :budget, :photo)
+    params.require(:initiative).permit(:name, :description, :sector_activity, :country, :budget, :photo)
   end
 end

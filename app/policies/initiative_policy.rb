@@ -12,4 +12,8 @@ class InitiativePolicy < ApplicationPolicy
   def show?
     record.user == user
   end
+
+  def destroy?
+    record.user == user
+  end
 end
