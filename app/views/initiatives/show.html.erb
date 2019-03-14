@@ -1,24 +1,37 @@
-  <div class="first-banner">
-    <div class="banner-img" style="background-image: url('<%= cl_image_path(@initiative.photo)%>')">
+<div class="first-banner">
+    <div class="banner-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),   url('<%= cl_image_path(@initiative.photo)%>')">
+      <h1><%= @initiative.name %></h1>
     </div>
-    <div class="characteristics">
-    <%= image_tag "loc.png", width: "25px", height: "25px" %>
-    <p><%= @initiative.country %></p>
+    <div class="baninfo">
+      <div class="sdg">
+        <%= image_tag "sdg3.png", width: "120px", height: "120px" %>
+        <%= image_tag "sdg5.png", width: "120px", height: "120px" %>
+        <%= image_tag "sdg6.png", width: "120px", height: "120px" %>
+      </div>
+      <div class="characteristics">
+        <div class="chara">
+          <%= image_tag "loc.png", width: "50px", height: "50px" %>
+          <%= @initiative.country %>
+        </div>
+        <div class="chara">
+          <%= image_tag "money-bag.png", width: "50px", height: "50px" %>
+          <%= @initiative.budget %>
+        </div>
+        <div class="chara">
+          <p>Start date</p>
+          <p>2005</p>
+        </div>
+        <div class="chara">
+          <p>Beneficiaries</p>
+          <p>Hospitals</p>
+        </div>
+      </div>
     </div>
   </div>
-
-
-
-  <div class="first-content">
-    <h1>INITIATIVE OVERVIEW</h1>
-    <div class="title">
-        <h2><%= @initiative.name %></h2>
-        <h3><%= @initiative.description %></h3>
-    </div>
-  </div>
-  <div class="SDG">
-    <%= image_tag "loc.png", width: "25px", height: "25px" %>
-    <p><%= @initiative.country %></p>
-  </div>
+        <div class="title">
+          <h3><%= @initiative.description %></h3>
+          <p> In Cambodia, 24% of population has no access to improved water sources, 58% to sanitaiton facilities, 49% to soap to handwashing facilities at home, and diarrhea is the 2nd cause of death for children under 5. </p>
+          <h3> WAH ongoing activities </h3>
+      </div>
 </div>
 <%= link_to "Delete", initiative_path, method: :delete, data: { confirm: "Are you sure?" } %>

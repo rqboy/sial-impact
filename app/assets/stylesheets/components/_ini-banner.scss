@@ -1,19 +1,60 @@
+.baninfo {
+  display:flex;
+  flex-direction: column;
+  background-color: #d8cbbb;
+  padding: 15px;
+  width: 30%;
+}
+
 .characteristics {
-  background-color: black;
-  width:30%;
+  margin: 15px 0px 15px 0px;
+  font-size: 16px;
 }
 
 .first-banner {
-  display: flex;
-  width:100%;
+  display:flex;
+  width:85%;
+  margin: auto;
 }
 
 .banner-img {
-  background-color:yellow;
   width: 70%;
   background-repeat: no-repeat;
   min-height: 300px;
   background-size: cover;
   background-position:center center;
-
+  color:white;
 }
+
+.banner-img h1 {
+  position:relative;
+}
+
+.sdg {
+  display:flex;
+  width:100%;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.chara {
+  width: 53%;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px auto;
+  border-bottom: 1px solid white;
+  padding: 10px 0;
+  font-size: 16px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.title {
+  background-color: #ffffff;
+  margin:auto;
+  width: 85%;
+  color: #444444;
+  padding: 20px;
+}
+
+
