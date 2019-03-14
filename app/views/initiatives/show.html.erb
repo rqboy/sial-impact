@@ -1,1 +1,24 @@
+  <div class="first-banner">
+    <div class="banner-img" style="background-image: url('<%= cl_image_path(@initiative.photo)%>')">
+    </div>
+    <div class="characteristics">
+    <%= image_tag "loc.png", width: "25px", height: "25px" %>
+    <p><%= @initiative.country %></p>
+    </div>
+  </div>
+
+
+
+  <div class="first-content">
+    <h1>INITIATIVE OVERVIEW</h1>
+    <div class="title">
+        <h2><%= @initiative.name %></h2>
+        <h3><%= @initiative.description %></h3>
+    </div>
+  </div>
+  <div class="SDG">
+    <%= image_tag "loc.png", width: "25px", height: "25px" %>
+    <p><%= @initiative.country %></p>
+  </div>
+</div>
 <%= link_to "Delete", initiative_path, method: :delete, data: { confirm: "Are you sure?" } %>

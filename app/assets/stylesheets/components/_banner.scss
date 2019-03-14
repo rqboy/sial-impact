@@ -1,12 +1,13 @@
 .banner {
-  background-size: cover;
-  padding: 400px;
+  background-image: url("https://res.cloudinary.com/dxj84taty/image/upload/v1552555948/trianglify.png");
+  background-size:cover;
+  padding: 200px;
   background-position: center;
   font-family: 'K2D', sans-serif;
 }
 
 .banner h1 {
-  margin-left:-250px;
+  margin-left: 20px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 70px;
@@ -16,7 +17,7 @@
 
 .banner p {
   font-size: 30px;
-  margin-left:-250px;
+  margin-left:20px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
