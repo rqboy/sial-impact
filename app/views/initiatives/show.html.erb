@@ -32,7 +32,19 @@
           <h3><%= @initiative.description %></h3>
           <p> In Cambodia, 24% of population has no access to improved water sources, 58% to sanitaiton facilities, 49% to soap to handwashing facilities at home, and diarrhea is the 2nd cause of death for children under 5. </p>
           <h3> WAH ongoing activities </h3>
-      </div>
+          <% @initiative.activities.each do |activity| %>
+            <div class="activity">
+              <p><%= activity.title %></p>
+              <div class="progress-bar">
+              <div class="progress" style="width: <%= activity.objective.nil? ? 0 : 8/activity.objective %>%">
+              </div>
+              </div>
+              </div>
+            <div>
+          <% end %>
+
+            <%= link_to "Add an activity", new_initiative_activity_path(@initiative) %>
+          </div>
+        </div>
 </div>
-<%= link_to "Delete", initiative_path, method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to "Add an activity", new_initiative_activity_path(@initiative) %>
+<%= link_to "Delete Initiative", initiative_path, method: :delete, data: { confirm: "Are you sure?" } %>

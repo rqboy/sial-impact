@@ -1,0 +1,20 @@
+.activity {
+  display: flex;
+  margin: 40px 40px 40px 40px;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  width: 800px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.progress {
+  background-color: #7bcead;
+  height: 40px;
+  border-radius: 4px;
+  color: #fff;
+  text-align: right;
+}
