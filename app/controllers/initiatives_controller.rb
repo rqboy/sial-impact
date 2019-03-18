@@ -1,10 +1,11 @@
 class InitiativesController < ApplicationController
   def index
-    #@initiatives = policy_scope(Initiative).all
-    if params[:query].present?
-      @initiatives = policy_scope(Initiative).where("name ILIKE ?", "%#{params[:query]}%")
-    else
+    if current_user.role == "gestionnaire"
       @initiatives = policy_scope(Initiative).all
+    elsif current_user.role == "entrepreneur"
+      @current_initiative = current_user.initiatives_ent.first
+      authorize @current_initiative
+      redirect_to initiative_path(@current_initiative)
     end
   end
 

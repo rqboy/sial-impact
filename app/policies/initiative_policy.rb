@@ -10,10 +10,14 @@ class InitiativePolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user
+    record.user == user || record.referent == user
   end
 
   def destroy?
     record.user == user
+  end
+
+  def index?
+    true
   end
 end
