@@ -1,7 +1,7 @@
 class InitiativesController < ApplicationController
   def index
     if current_user.role == "gestionnaire"
-      @initiatives = policy_scope(Initiative).all
+      @initiatives = Initiative.where(user_id: current_user.id)
     elsif current_user.role == "entrepreneur"
       @current_initiative = current_user.initiatives_ent.first
       authorize @current_initiative
