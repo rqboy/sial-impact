@@ -2,24 +2,33 @@ Activity.destroy_all
 Initiative.destroy_all
 User.destroy_all
 
-user = User.create(email:"hz.iraqi@gmail.com", password: "sialimpact")
+url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552903901/sacha.png"
+user_ent = User.create(email:"hz.iraqi@gmail.com", password: "sialimpact", role: "entrepreneur")
+user_ent.remote_photo_url = url
+user_ent.save
+
+url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552902749/gestionnaire.jpg"
+user_ges = User.create(email:"hamza.iraqi@hec.edu", password: "sialimpact", role: "gestionnaire")
+user_ges.remote_photo_url = url
+user_ges.save
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552657537/hvze7e7uxi09nbvoefqd.jpg"
 initiative2 = Initiative.new(name: "Thread", description: "Empowering women in agriculture", sector_activity: "Agriculture", budget: 100000, country: "Senegal")
-initiative2.user = user
+initiative2.user = user_ges
 initiative2.remote_photo_url = url
 initiative2.save
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552657502/mp333ikpwdeutpzqgcrf.jpg"
 initiative1 = Initiative.new(name: "WAH", description: "Bringing clean water to rural communities", sector_activity: "Water", budget: 50000, country: "Cambodia")
 initiative1.remote_photo_url = url
-initiative1.user = user
+initiative1.user = user_ges
+initiative1.referent_id = user_ent
 initiative1.save
 
-url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552657702/rrshdowf0y24ckpnypjr.jpg"
+url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552664737/ndj58z7ujars8emfhmfq.jpg"
 initiative3 = Initiative.new(name: "LP4Y", description: "Helping young people find job opportunities", sector_activity: "Employment", budget: 200000, country: "Philippines")
 initiative3.remote_photo_url = url
-initiative3.user = user
+initiative3.user = user_ges
 initiative3.save
 
 activity1 = Activity.create(title: "Organisation of midwives and pediatric trainings", objective: 11)
