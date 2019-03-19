@@ -1,3 +1,14 @@
+<%= render "shared/navbar" %>
+
+<div class="mini-container">
+<%= form_tag initiatives_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an initiative ..."%>
+<% end %>
+</div>
+
 <div class="results">
   <div class="row">
     <% @initiatives.each do |initiative| %>
@@ -21,5 +32,5 @@
 </div>
 
   <div class="btn-add">
-    <p><%= link_to "Add an initiative", new_initiative_path %></p>
+    <%= link_to "Add an initiative", new_initiative_path %>
   </div>

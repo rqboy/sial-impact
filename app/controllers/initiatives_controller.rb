@@ -7,6 +7,13 @@ class InitiativesController < ApplicationController
       authorize @current_initiative
       redirect_to initiative_path(@current_initiative)
     end
+
+    if params[:query].present?
+      @initiatives = policy_scope(Initiative).where("name ILIKE ?", "%#{params[:query]}%")
+      # raise
+    else
+      @initiatives = policy_scope(Initiative)
+    end
   end
 
   def show
