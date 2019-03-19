@@ -65,6 +65,39 @@ activity2.save
 activity3 = Activity.create(title: "Promotion of hygiene in public schools", objective: 17)
 activity3.initiative = initiative1
 activity3.save
+
+outcome1 = Outcome.create(title: "Number of workshops", objectif: 36)
+outcome1.activity = activity1
+outcome1.save
+
+outcome2 = Outcome.create(title: "Presence in workshops", objectif: 0,8)
+outcome2.activity = activity1
+outcome2.save
+
+outcome3 = Outcome.create(title: "Number of workshops", objectif: 120)
+outcome3.activity = activity2
+outcome3.save
+
+outcome4 = Outcome.create(title: "Number of yearly maintenance interventions", objectif: 3)
+outcome4.activity = activity2
+outcome4.save
+
+outcome5 = Outcome.create(title: "Number of soaps distributed in schools", objectif: 6000)
+outcome5.activity = activity3
+outcome5.save
+
+outcome6 = Outcome.create(title: "Number of shampoos distributed in schools", objectif: 3000)
+outcome6.activity = activity3
+outcome6.save
+
+  # create_table "outcomes", force: :cascade do |t|
+  #   t.string "title"
+  #   t.integer "objective_value"
+  #   t.bigint "activity_id"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  #   t.index ["activity_id"], name: "index_outcomes_on_activity_id"
+  # end
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
