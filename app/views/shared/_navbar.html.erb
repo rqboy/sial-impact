@@ -13,8 +13,8 @@
           <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
+          <%= link_to t(".sign_in", default: "Manager"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <%= link_to t(".sign_in", default: "Entrepreneur"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to t(".sign_in", default: "Gestionnaire"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <% end %>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <li>
