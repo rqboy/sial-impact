@@ -15,6 +15,7 @@ user_ges.save
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552657537/hvze7e7uxi09nbvoefqd.jpg"
 initiative2 = Initiative.new(name: "Thread", description: "Empowering women in agriculture", sector_activity: "Agriculture", budget: 100000, country: "Senegal")
 initiative2.user = user_ges
+initiative2.referent_id = user_ges.id
 initiative2.remote_photo_url = url
 initiative2.save
 
@@ -28,23 +29,27 @@ initiative1.save
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552664737/ndj58z7ujars8emfhmfq.jpg"
 initiative3 = Initiative.new(name: "LP4Y", description: "Helping young people find job opportunities", sector_activity: "Employment", budget: 200000, country: "Philippines")
 initiative3.remote_photo_url = url
+initiative3.referent_id = user_ges.id
 initiative3.user = user_ges
 initiative3.save
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552904933/1001F.jpg"
 initiative4 = Initiative.new(name: "1001 Fontaines", description: "Bringing clean water to schools", sector_activity: "Water", budget: 250000, country: "Madagascar")
 initiative4.remote_photo_url = url
+initiative4.referent_id = user_ges.id
 initiative4.user = user_ges
 initiative4.save
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552904933/drishtee.jpg"
 initiative5 = Initiative.new(name: "Drishtee", description: "Provides information technology to rural kiosks", sector_activity: "Technology", budget: 300000, country: "India")
 initiative5.remote_photo_url = url
+initiative5.referent_id = user_ges.id
 initiative5.user = user_ges
 initiative5.save
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552904933/ldb.webp"
 initiative6 = Initiative.new(name: "Laiteries du Berger", description: "Yaourt distribution", sector_activity: "Food", budget: 150000, country: "Senegal")
+initiative6.referent_id = user_ges.id
 initiative6.remote_photo_url = url
 initiative6.user = user_ges
 initiative6.save

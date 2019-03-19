@@ -1,44 +1,39 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to initiatives_path, class: "navbar-brand" do %>
-  <strong> SIAL IMPACT </strong>
-    <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Initiatives", initiatives_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Dashboard", initiatives_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Calendar", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-         <li class="nav-item">
-          <%= link_to "Conflicts", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+      <li class="nav-item active">
+        <% if user_signed_in? %>
+          <%= link_to "Index", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Dashboard", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to "Messages", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <li class="nav-item dropdown">
+          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+          <%= link_to t(".sign_in", default: "Entrepreneur"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to t(".sign_in", default: "Gestionnaire"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <li>
+              <%= link_to initiatives_path do %>
+                <i class="fa fa-user"></i> <%= t(".initiatives", default: "Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to edit_user_registration_path  do %>
+                <i class="fa fa-cog"></i>  <%= t(".initiatives", default: "Settings") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
