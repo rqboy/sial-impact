@@ -31,6 +31,41 @@
     </div>
   <div class="col col-sm-8">
     <%= render "shared/navbar" %>
+  <% if current_user.role == "entrepreneur" %>
+  <div class="dashboard">
+    <h2><%= @initiative.name %></h2>
+    <h3><%= @initiative.description %></h3>
+    <% @initiative.activities.each_with_index do |activity, index| %>
+      <div class="activities">
+        <div class="activity-title">
+         <div class="activity-index"><%= index + 1 %></div>
+         <div class="outcome-block">
+          <h3><%= activity.title %></h3>
+          <table>
+            <tr>
+              <th>Outcomes</th>
+              <th>Objectives</th>
+              <th>Entry date</th>
+              <th>Last value</th>
+              <th>Add new</th>
+            </tr>
+            <% activity.outcomes.each do |outcome| %>
+            <tr>
+              <td><%= outcome.title %></td>
+              <td><%= outcome.objective_value %></td>
+              <td><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
+              <td><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
+              <td><%= link_to "add a new value", new_outcome_outcome_value_path(outcome) %></td>
+            </tr>
+           <% end %>
+           </table>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <% else %>
   <div class="dashboard">
     <h2><%= @initiative.name %></h2>
     <h3><%= @initiative.description %></h3>
@@ -45,7 +80,7 @@
         </div>
       </div>
     <% end %>
-
   </div>
+  <% end %>
   </div>
 </div>

@@ -1,0 +1,51 @@
+.dashboard{
+  padding: 0;
+  h2{
+    font-size: 36px;
+    font-weight: lighter;
+    margin-top: 0;
+    padding: 0;
+  }
+  h3{
+    font-size: 24px;
+    font-weight: lighter;
+    margin-bottom: 50px;
+  }
+}
+
+.activity-index{
+  background-color: #44AEBC;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.activities {
+  display: flex;
+  flex-direction:column;
+  margin-bottom: 20px;
+}
+
+.activity-title {
+  display:flex;
+
+}
+
+.outcome-block {
+  width: 100%;
+   h3 {
+    background-color: #44AEBC;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align:center;
+    height: 70px;
+    line-height:70px;
+   }
+}
