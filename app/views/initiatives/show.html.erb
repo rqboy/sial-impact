@@ -41,21 +41,21 @@
          <div class="activity-index"><%= index + 1 %></div>
          <div class="outcome-block">
           <h3><%= activity.title %></h3>
-          <table>
+          <table class="outable">
             <tr>
               <th>Outcomes</th>
               <th>Objectives</th>
-              <th>Entry date</th>
               <th>Last value</th>
+              <th>Entry date</th>
               <th>Add new</th>
             </tr>
             <% activity.outcomes.each do |outcome| %>
             <tr>
-              <td><%= outcome.title %></td>
-              <td><%= outcome.objective_value %></td>
-              <td><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
-              <td><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
-              <td><%= link_to "add a new value", new_outcome_outcome_value_path(outcome) %></td>
+              <td class="outcome-title"><%= outcome.title %></td>
+              <td class="outcome-objective"><%= outcome.objective_value %></td>
+              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
+              <td class="outcome-date"><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
+              <td class="outcome-add-value"><%= link_to "add a new value", new_outcome_outcome_value_path(outcome) %></td>
             </tr>
            <% end %>
            </table>

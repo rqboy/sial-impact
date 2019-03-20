@@ -9,7 +9,6 @@
   h3{
     font-size: 24px;
     font-weight: lighter;
-    margin-bottom: 50px;
   }
 }
 
@@ -17,7 +16,6 @@
   display: flex;
   margin-bottom: 20px;
 }
-
 
 .activity-index{
   background-color: #44AEBC;
@@ -34,4 +32,8 @@
 
 .activity-progress{
   flex: 2;
+}
+
+.outable {
+  width:100%;
 }
