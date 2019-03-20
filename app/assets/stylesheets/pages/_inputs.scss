@@ -13,6 +13,26 @@
   }
 }
 
+.outcome-title {
+  width:35%;
+}
+
+.outcome-objective {
+  width:10%;
+}
+
+.outcome-value {
+  width:10%;
+}
+
+.outcome-date {
+  width:20%;
+}
+
+.outcome-add-value {
+  width: 15%;
+}
+
 .activity-index{
   background-color: #44AEBC;
   color: white;
@@ -47,5 +67,6 @@
     text-align:center;
     height: 70px;
     line-height:70px;
+    margin-bottom:15px;
    }
 }
