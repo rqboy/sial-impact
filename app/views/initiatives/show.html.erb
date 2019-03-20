@@ -43,19 +43,23 @@
           <h3><%= activity.title %></h3>
           <table class="outable">
             <tr>
-              <th>Outcomes</th>
+              <th></th>
               <th>Objectives</th>
-              <th>Last value</th>
+              <th>Value</th>
+              <th>Last input</th>
               <th>Entry date</th>
-              <th>Add new</th>
             </tr>
             <% activity.outcomes.each do |outcome| %>
             <tr>
-              <td class="outcome-title"><%= outcome.title %></td>
+              <td class="outcome-title"><%= link_to outcome.title, new_outcome_outcome_value_path(outcome)  %></td>
               <td class="outcome-objective"><%= outcome.objective_value %></td>
+              <% if outcome.title.first == "N" %>
+                <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum : "NA" %></td>
+              <% else %>
+              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum/outcome.outcome_values.pluck(:value).count : "NA" %></td>
+              <%end%>
               <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
               <td class="outcome-date"><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
-              <td class="outcome-add-value"><%= link_to "add a new value", new_outcome_outcome_value_path(outcome) %></td>
             </tr>
            <% end %>
            </table>

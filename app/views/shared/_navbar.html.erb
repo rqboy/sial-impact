@@ -7,10 +7,15 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <% if user_signed_in? %>
-          <%= link_to "Index", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "Dashboard", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <%= link_to "Messages", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
-          <li class="nav-item dropdown">
+          <% if current_user.role == "entrepreneur"%>
+            <%= link_to "Inputs", initiative_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Messages", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+          <% else %>
+            <%= link_to "Dashboard", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Initiatives", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            <%= link_to "Messages", initiatives_path, class: "navbar-wagon-item navbar-wagon-link" %>
+            <li class="nav-item dropdown">
+          <% end %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <% else %>
           <%= link_to t(".sign_in", default: "Manager"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
