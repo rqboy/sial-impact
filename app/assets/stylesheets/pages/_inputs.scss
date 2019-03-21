@@ -40,7 +40,6 @@
 .values-progression {
   width:100%;
   min-height:250px;
-  background-color: #EEEEEE;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -59,6 +58,70 @@
       display:flex;
       align-items:center;
       justify-content:center;
+    }
+}
+
+.outcome-first {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+    h3 {
+      font-size: 16px;
+      margin-bottom:0px;
+      margin-right: 0px;
+      margin-top:10px;
+      margin-bottom:30px;
+    }
+    .btn-primary{
+      a {
+        color:white;
+      }
+    }
+}
+
+.outcome-second {
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.metrics {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  background-color: #d8cbbb;
+  width:25%;
+  text-transform:uppercase;
+  margin-bottom:30px;
+    .met {
+      padding-top:20px;
+      padding-bottom:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
+      align-items:center;
+        .indic {
+          font-size:18px;
+          font-weight:light;
+        }
+
+        .nb {
+          font-size:18px;
+          font-weight:bold;
+        }
+    }
+}
+
+.boutons {
+  display:flex;
+  justify-content:space-between;
+    a {
+      margin-right: 20px;
+      margin-left: 20px;
+      padding: 20px;
+      color: white;
     }
 }
 

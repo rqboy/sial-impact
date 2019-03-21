@@ -12,7 +12,7 @@ class OutcomeValuesController < ApplicationController
     @outcome_value.outcome_id = params[:outcome_id]
     authorize @outcome_value
     @outcome_value.save
-    redirect_to initiatives_path
+    redirect_to initiative_path(@outcome_value.outcome.activity.initiative)
   end
 
   private
