@@ -1,5 +1,7 @@
 require "date"
 
+OutcomeValue.destroy_all
+Outcome.destroy_all
 Activity.destroy_all
 Initiative.destroy_all
 User.destroy_all
