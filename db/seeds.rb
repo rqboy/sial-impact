@@ -103,7 +103,7 @@ outcome_value2 = OutcomeValue.create(value: 7, created_at: (Date.today - 30))
 outcome_value2.outcome = outcome1
 outcome_value2.save
 
-outcome_value3 = OutcomeValue.create(value: 6)
+outcome_value3 = OutcomeValue.create(value: 0)
 outcome_value3.outcome = outcome1
 outcome_value3.save
 
@@ -115,7 +115,7 @@ outcome_value5 = OutcomeValue.create(value: 0.9 , created_at: (Date.today - 30))
 outcome_value5.outcome = outcome2
 outcome_value5.save
 
-outcome_value6 = OutcomeValue.create(value: 0.6)
+outcome_value6 = OutcomeValue.create(value: 0)
 outcome_value6.outcome = outcome2
 outcome_value6.save
 
@@ -127,7 +127,7 @@ outcome_value8 = OutcomeValue.create(value: 30 , created_at: (Date.today - 30))
 outcome_value8.outcome = outcome3
 outcome_value8.save
 
-outcome_value9 = OutcomeValue.create(value:  25)
+outcome_value9 = OutcomeValue.create(value:  0)
 outcome_value9.outcome = outcome3
 outcome_value9.save
 
@@ -151,7 +151,7 @@ outcome_value14 = OutcomeValue.create(value: 950, created_at: (Date.today - 30))
 outcome_value14.outcome = outcome5
 outcome_value14.save
 
-outcome_value15 = OutcomeValue.create(value: 700)
+outcome_value15 = OutcomeValue.create(value: 0)
 outcome_value15.outcome = outcome5
 outcome_value15.save
 
@@ -163,7 +163,7 @@ outcome_value18 = OutcomeValue.create(value: 450, created_at:(Date.today - 30))
 outcome_value18.outcome = outcome6
 outcome_value18.save
 
-outcome_value19 = OutcomeValue.create(value: 450)
+outcome_value19 = OutcomeValue.create(value: 0)
 outcome_value19.outcome = outcome6
 outcome_value19.save
 
