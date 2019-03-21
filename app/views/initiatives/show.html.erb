@@ -46,6 +46,17 @@
             <h2><%= activity.title %></h2>
         </div>
         <div class="values-progression">
+          <% activity.outcomes.each do |outcome| %>
+          <div class="outcome-first">
+            <%= outcome.title%>
+            <%= link_to "add a new value", new_outcome_outcome_value_path(outcome)  %>
+          </div>
+          <div class="outcome-second">
+            <div class = "metrics">
+              carré de metrics
+            </div>
+            graph
+          </div>
         </div>
     <% end %>
     </div>
