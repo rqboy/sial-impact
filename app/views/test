@@ -1,0 +1,46 @@
+test
+              <th></th>
+              <th>Objectives</th>
+              <th>Value</th>
+              <th>Last input</th>
+              <th>Entry date</th>
+            </tr>
+            <% activity.outcomes.each do |outcome| %>
+            <tr>
+              <td class="outcome-title"><%= link_to outcome.title, new_outcome_outcome_value_path(outcome)  %></td>
+              <td class="outcome-objective"><%= outcome.objective_value %></td>
+              <% if outcome.title.first == "N" %>
+                <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum : "NA" %></td>
+              <% else %>
+              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum/outcome.outcome_values.pluck(:value).count : "NA" %></td>
+              <%end%>
+              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
+              <td class="outcome-date"><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
+            </tr>
+           <% end %>
+           </table>
+        </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+  <% else %>
+  <div class="dashboard">
+    <h2><%= @initiative.name %></h2>
+    <h3><%= @initiative.description %></h3>
+    <% @initiative.activities.each_with_index do |activity, index| %>
+      <div class="activity-description">
+        <div class="activity-index"><%= index %></div>
+        <div class="activity-progress">
+           <p class="ini-activities"><%= activity.title %></p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+  </div>
+</div>
