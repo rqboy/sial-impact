@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'chartkick' %>
+
 <div class="container container-global">
   <div class="row">
     <div class="col col-sm-3 offset-md-1">
@@ -31,60 +33,21 @@
     </div>
   <div class="col col-sm-8">
     <%= render "shared/navbar" %>
-  <% if current_user.role == "entrepreneur" %>
   <div class="dashboard">
     <h2><%= @initiative.name %></h2>
     <h3><%= @initiative.description %></h3>
+    <div class="activities">
     <% @initiative.activities.each_with_index do |activity, index| %>
-      <div class="activities">
-        <div class="activity-title">
-         <div class="activity-index"><%= index + 1 %></div>
-         <div class="outcome-block">
-          <h3><%= activity.title %></h3>
-          <table class="outable">
-            <tr>
-              <th></th>
-              <th>Objectives</th>
-              <th>Value</th>
-              <th>Last input</th>
-              <th>Entry date</th>
-            </tr>
-            <% activity.outcomes.each do |outcome| %>
-            <tr>
-              <td class="outcome-title"><%= link_to outcome.title, new_outcome_outcome_value_path(outcome)  %></td>
-              <td class="outcome-objective"><%= outcome.objective_value %></td>
-              <% if outcome.title.first == "N" %>
-                <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum : "NA" %></td>
-              <% else %>
-              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.pluck(:value).sum/outcome.outcome_values.pluck(:value).count : "NA" %></td>
-              <%end%>
-              <td class="outcome-value"><%= outcome.outcome_values.last ? outcome.outcome_values.last.value : "NA" %></td>
-              <td class="outcome-date"><%= outcome.outcome_values.last ? outcome.outcome_values.last.created_at : "NA" %></td>
-            </tr>
-           <% end %>
-           </table>
-        </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  </div>
-  <% else %>
-  <div class="dashboard">
-    <h2><%= @initiative.name %></h2>
-    <h3><%= @initiative.description %></h3>
-    <% @initiative.activities.each_with_index do |activity, index| %>
-      <div class="activity-description">
-        <div class="activity-index"><%= index %></div>
-        <div class="activity-progress">
-           <p class="ini-activities"><%= activity.title %></p>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+        <div class = "activity-chart">
+          <div class="graph">
+            <div class ="number"> <%= (activity.progress*100).round %>% </div>
+            <%= pie_chart [["positif", activity.progress],["negatif", 1 - activity.progress]], colors: ["#44AEBC", "#d8cbbb"], donut: true, legend: false, width: "60px", height: "60px"%>
           </div>
+            <h2><%= activity.title %></h2>
         </div>
-      </div>
+        <div class="values-progression">
+        </div>
     <% end %>
-  </div>
-  <% end %>
+    </div>
   </div>
 </div>
