@@ -1,6 +1,9 @@
+require "date"
+
 Activity.destroy_all
 Initiative.destroy_all
 User.destroy_all
+
 
 url = "https://res.cloudinary.com/dxj84taty/image/upload/v1552905627/Sachafin.webp"
 user_ent = User.create(email:"hz.iraqi@gmail.com", password: "sialimpact", role: "entrepreneur")
@@ -89,6 +92,86 @@ outcome5.save
 outcome6 = Outcome.create(title: "Number of shampoos distributed in schools", objective_value: 3000)
 outcome6.activity = activity3
 outcome6.save
+
+outcome_value1 = OutcomeValue.create(value: 5, created_at: (Date.today - 60))
+outcome_value1.outcome = outcome1
+outcome_value1.save
+
+outcome_value2 = OutcomeValue.create(value: 7, created_at: (Date.today - 30))
+outcome_value2.outcome = outcome1
+outcome_value2.save
+
+outcome_value3 = OutcomeValue.create(value: 6)
+outcome_value3.outcome = outcome1
+outcome_value3.save
+
+outcome_value4 = OutcomeValue.create(value: 0.6 , created_at: (Date.today - 60))
+outcome_value4.outcome = outcome2
+outcome_value4.save
+
+outcome_value5 = OutcomeValue.create(value: 0.9 , created_at: (Date.today - 30))
+outcome_value5.outcome = outcome2
+outcome_value5.save
+
+outcome_value6 = OutcomeValue.create(value: 0.6)
+outcome_value6.outcome = outcome2
+outcome_value6.save
+
+outcome_value7 = OutcomeValue.create(value: 20 , created_at: (Date.today - 60))
+outcome_value7.outcome = outcome3
+outcome_value7.save
+
+outcome_value8 = OutcomeValue.create(value: 30 , created_at: (Date.today - 30))
+outcome_value8.outcome = outcome3
+outcome_value8.save
+
+outcome_value9 = OutcomeValue.create(value:  25)
+outcome_value9.outcome = outcome3
+outcome_value9.save
+
+outcome_value10 = OutcomeValue.create(value: 0, created_at: (Date.today - 60))
+outcome_value10.outcome = outcome4
+outcome_value10.save
+
+outcome_value11 = OutcomeValue.create(value: 1, created_at: (Date.today - 30))
+outcome_value11.outcome = outcome4
+outcome_value11.save
+
+outcome_value12 = OutcomeValue.create(value: 0)
+outcome_value12.outcome = outcome4
+outcome_value12.save
+
+outcome_value13 = OutcomeValue.create(value: 800, created_at: (Date.today - 60))
+outcome_value13.outcome = outcome5
+outcome_value13.save
+
+outcome_value14 = OutcomeValue.create(value: 950, created_at: (Date.today - 30))
+outcome_value14.outcome = outcome5
+outcome_value14.save
+
+outcome_value15 = OutcomeValue.create(value: 700)
+outcome_value15.outcome = outcome5
+outcome_value15.save
+
+outcome_value17 = OutcomeValue.create(value: 450, created_at:(Date.today - 60))
+outcome_value17.outcome = outcome6
+outcome_value17.save
+
+outcome_value18 = OutcomeValue.create(value: 450, created_at:(Date.today - 30))
+outcome_value18.outcome = outcome6
+outcome_value18.save
+
+outcome_value19 = OutcomeValue.create(value: 450)
+outcome_value19.outcome = outcome6
+outcome_value19.save
+
+  # create_table "outcome_values", force: :cascade do |t|
+  #   t.float "value"
+  #   t.bigint "outcome_id"
+  #   t.datetime "created_at", null: false
+  #   t.datetime "updated_at", null: false
+  #   t.index ["outcome_id"], name: "index_outcome_values_on_outcome_id"
+  # end
 
   # create_table "outcomes", force: :cascade do |t|
   #   t.string "title"
