@@ -1,9 +1,21 @@
 <%= javascript_pack_tag 'chartkick' %>
 
-<div class="container">
+<div class="container container-global">
+  <div class="row">
+    <div class="col col-sm-3 offset-md-1">
+      <div class="sidebar">
+        <div class="imglog"><%= image_tag("link.png")%></div>
+        <div class="arbre"><%= image_tag("arbre.svg") %></div>
+        <div class="about"></div>
+     </div>
+    </div>
+    <div class="col col-sm-8">
+      <%= render "shared/navbar" %>
+      <div class="container">
   <div class="history">
     <div class="title"><%= @outcome.title %></div>
     <div class="yobj"> Yearly objective : <%= @outcome.objective_value %></div>
+    <div class="prg"> Progress : <%= (@outcome.progress*100).round %>%</div>
   </div>
   <div class="info">
       <table class="tabulae">
@@ -27,4 +39,7 @@
     <% end %>
   </div>
 </div>
+
+
+
 
