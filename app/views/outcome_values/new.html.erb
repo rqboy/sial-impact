@@ -2,13 +2,24 @@
 
 <div class="container">
   <div class="history">
-    <p><%= @outcome.title %></p>
-    <p> Yearly objective : <%= @outcome.objective_value %></p>
-    <% @outcome_values.each do |outcome_value|%>
-    <%= outcome_value.created_at %>
-    <%= outcome_value.value %>
-    <% end %>
+    <div class="title"><%= @outcome.title %></div>
+    <div class="yobj"> Yearly objective : <%= @outcome.objective_value %></div>
   </div>
+  <div class="info">
+      <table class="tabulae">
+        <tr class="Intitules">
+          <th>Date</th>
+          <th>Outcome</th>
+        </tr>
+    <% @outcome.outcome_values.each do |outcome_value|%>
+        <tr>
+          <td><%= outcome_value.created_at.strftime("%D") %></td>
+          <td><%= outcome_value.value %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= column_chart @outcome.chart_array, colors: ["#44AEBC", "#EEE"], legend: false, width: "70%", height: "auto"%>
+    </div>
   <div class="new-value">
   <%= simple_form_for [@outcome, @outcome_value] do |f| %>
     <%= f.input :value %>
@@ -16,6 +27,4 @@
     <% end %>
   </div>
 </div>
-
-<%= column_chart @ov_array, colors: ["#1F2673", "#FFF"], legend: false, width: "140px", height: "140px"%>
 

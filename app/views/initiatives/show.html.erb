@@ -48,15 +48,30 @@
         <div class="values-progression">
           <% activity.outcomes.each do |outcome| %>
           <div class="outcome-first">
-            <%= outcome.title%>
-            <%= link_to "add a new value", new_outcome_outcome_value_path(outcome)  %>
+            <h3><%= outcome.title%></h3>
+            <div class="boutons">
+              <div class="btn-primary"><%= link_to "add a new value", new_outcome_outcome_value_path(outcome)%></div>
+              <div class="btn-danger"><%= link_to "declare conflict", new_outcome_outcome_value_path(outcome)%></div>
+            </div>
           </div>
           <div class="outcome-second">
             <div class = "metrics">
-              carré de metrics
+              <div class="met">
+                <div class="indic">Objective</div>
+                <div class="nb"><%= outcome.objective_value.round %></div>
+              </div>
+              <div class="met">
+                <div class="indic">Progress</div>
+                <div class="nb"><%= (outcome.progress*100).round %>%</div>
+              </div>
+              <div class="met">
+                <div class="indic">Last update</div>
+                <div class="nb"><%= outcome.outcome_values.last.created_at.strftime("%D") %> </div>
+              </div>
             </div>
-            graph
+          <%= line_chart outcome.chart_array, colors: ["#44AEBC", "#d8cbbb"], donut: true, legend: false, width: "70%"%>
           </div>
+                <% end %>
         </div>
     <% end %>
     </div>
